@@ -1,0 +1,56 @@
+<html style="width:100%;">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link type="text/css" rel="stylesheet" href="css/tuto3.css">
+</head>
+
+<body>
+    <div class="ui inverted fixed menu">
+        <div class="header item">
+            Tutoriel 3 - Propriétés combinées & watchers
+        </div>
+    </div>
+
+
+    <div class="ui main container" id="tuto3">
+        <!-- COMPUTED GETTER par défaut -->
+        <input type="text" v-model="message"> {{message}}
+        <input type="checkbox" v-model="success">
+        <div class="ui message" :class="cls">
+            Salut les gens
+
+        </div>
+
+        <!-- COMPUTED GETTER par défaut-->
+        <div>
+            <p>
+                Prénom : {{ firstname }}<br> Nom : {{ lastname }} <br> Nom complet: <input type="text" v-model="fullname">
+            </p>
+        </div>
+
+        <!-- COMPUTED GETTER et SETTER-->
+        <div>
+            <p>
+                Prénom : {{ firstname }}<br> Nom : {{ lastname }} <br> Nom complet: <input type="text" v-model="fullname1">
+            </p>
+        </div>
+
+        <!-- watcher-->
+        <div>
+            <p>
+                Prénom : {{ firstname }}<br> Nom : {{ lastname }} <br> Nom complet: <input type="text" v-model="fullname3">
+            </p>
+        </div>
+
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="js/tuto3.js"></script>
+
+</body>
+
+</html>

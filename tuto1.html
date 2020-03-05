@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html style="width:100%;">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link type="text/css" rel="stylesheet" href="css/tuto1.css">
+</head>
+
+<body>
+    <div class="ui inverted fixed menu">
+        <div class="header item">
+            Tutoriel 1 - Découverte
+        </div>
+    </div>
+
+    <div class="ui main container" id="tuto1">
+        <!-- lien link href -->
+        <a :href="link" :title="message">{{message}}</a>
+        <!-- affichage v-show -->
+        <div class="ui success message" v-show="success">
+            <p>Bravo votre enregistrement a marché</p>
+        </div>
+        <!-- conditions  v-if v-else -->
+        <div class="ui success message" v-if="success">
+            <p>Bravo votre enregistrement a marché</p>
+        </div>
+        <div class="ui error message" v-else>
+            <p>Echec çà n'a pas marché</p>
+        </div>
+        <!-- boucle v-for -->
+        <div>
+            <ul>
+                <li v-for="person in persons"> {{ person }}</li>
+            </ul>
+        </div>
+
+        <!-- événements v-on -->
+        <div class="ui success message" v-if="successon">
+            <p>Bravo votre enregistrement a marché</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding input text -->
+        <input type="text" v-model="message">
+        <div class="ui success message" v-if="successon">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding input checkbox -->
+        <input type="checkbox" v-model="successcheck">
+        <div class="ui success message" v-if="successcheck">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding css 1 -->
+        <input type="checkbox" v-model="successcheck1">
+        <div class="ui message" :class="successcheck1 ? 'success' : 'error'">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding css 2 -->
+        <input type="checkbox" v-model="successcheck2">
+        <div class="ui message" :class="{success: successcheck2, error: !successcheck2}">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding css 3 -->
+        <input type="checkbox" v-model="successcheck3">
+        <div class="ui message" :style="{background: '#000'}">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+        <!-- binding css 4 -->
+        <input type="checkbox" v-model="successcheck3">
+        <div class="ui message" :style="style">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+
+        <!-- binding css 5 -->
+        <input type="checkbox" v-model="successcheck4">
+        <div class="ui message" :style="style1()">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+
+        <!-- binding css 6 -->
+        <input type="checkbox" v-model="cls" :true-value="'success'" :false-value="'error'">
+        <div class="ui message" :class="cls">
+            <p>{{ message }}</p>
+            <i class="close icon" @click="close"></i>
+        </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="js/tuto1.js"></script>
+
+</body>
+
+</html>
