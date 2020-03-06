@@ -1,0 +1,72 @@
+<html style="width:100%;">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link type="text/css" rel="stylesheet" href="css/tuto4.css">
+</head>
+
+<body>
+    <div class="ui inverted fixed menu">
+        <div class="header item">
+            Tutoriel 4 - Les directives
+        </div>
+    </div>
+
+
+    <div class="ui main container" id="tuto4">
+
+        <p>
+            <!-- Les modifiers -->
+
+            <!-- bloquer la gestion du click-->
+            <a href="http://grafikart.fr" @click.prevent="demo">Démonstration</a>
+
+            <!-- stopper la propagation du click (évite de faire des bulles vers le haut -> stop propagation au click parent demo2)-->
+            <p @click="demo2">
+                <a href="http://grafikart.fr" @click.stop="demo">Démonstration</a>
+            </p>
+
+            <!-- stopper la propagation du click (évite de faire des bulles vers le bas -> stop propagation au click enfant demo2)-->
+            <p><a href="http://grafikart.fr" @click.self="demo">Démonstration</a></p>
+            <p @click="demo2"></p>
+            <!-- prise en compte du message à la sortie de l'input text, évite de lancer trop d'évenements en même temps dans un formulaire-->
+            <input type="text" v-model.lazy="message"> {{ message }}
+
+            <!-- prise en compte du message au format nombre-->
+            <p><input type="text" v-model.number="message1"> {{ message1 }}</p>
+
+            <!-- prise en compte du message en trim à la fin du message-->
+            <p><input type="text" v-model.trim="message2"> ===={{ message2 }}====</p>
+
+
+            <!-- filtre sur code touche exemple space-->
+            <p><input type="text" @keyup.space="demo1"> {{ message2 }}</p>
+
+            <!-- Sa propre directive 1ère façon-->
+            <p>
+                <input type="text" v-model="message3"> ==={{ message3 }}=====
+                <input type="text" v-salut="message3">
+            </p>
+
+            <!-- Sa propre directive 2ème façon-->
+            <p>
+                <input type="text" v-model="message4"> ==={{ message4 }}=====
+                <input type="text" v-salut1="message4">
+            </p>
+            <!-- sa propre directive-->
+            <p>
+                <input type="text" v-model="message5"> ==={{ message5 }}=====
+                <input type="text" v-salut2="message5">
+            </p>
+        </p>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="js/tuto4.js"></script>
+
+</body>
+
+</html>
