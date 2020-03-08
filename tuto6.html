@@ -1,0 +1,47 @@
+<html style="width:100%;">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css"
+    />
+    <link type="text/css" rel="stylesheet" href="css/tuto6.css" />
+  </head>
+
+  <body>
+    <div class="ui inverted fixed menu">
+      <div class="header item">
+        Tutoriel 6 - Les Composants
+      </div>
+    </div>
+
+    <div class="ui main container" id="tuto6">
+      <!--props tableau-->
+      <div><mon-message type="error" :message="message"></mon-message></div>
+
+      <!--props objet-->
+      <div><mon-message1 :message="message"></mon-message1></div>
+
+      <!--objet composant passé à l'instance vue-->
+      <div><mon-message2 :message2="message2"></mon-message2></div>
+
+      <!--2 composants avec scopes propres -->
+      <div>
+        <counter></counter>
+        <counter :start="3"></counter>
+      </div>
+    
+
+      <!--objet composant avec événement vers parent-->
+      <div>
+        <mon-message3 :message3="message3" type="error" header="Attention" v-if="alert" @close="hideAlert"></mon-message3>
+        <button @click="showAlert" v-if="!alert">Alerter</button>
+      </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js"></script>
+    <script src="js/tuto6.js"></script>
+  </body>
+</html>
